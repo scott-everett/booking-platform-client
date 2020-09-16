@@ -1,0 +1,55 @@
+:host {
+  width: 800px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  border-color: rgb(198, 198, 198);
+  padding: 16px;
+  overflow: hidden;
+  display: block;
+}
+
+.booking-image {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+.booking-details {
+  float: right;
+  width: calc(100% - 200px);
+  padding-left: 20px;
+}
+
+.booking-title {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #0071c2;
+}
+
+.booking-title:hover {
+  color: gray;
+}
+
+.booking-location {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #0071c2;
+}
+
+.booking-dates {
+  margin-top: 15px;
+}
+
+.booking-price {
+  margin-top: 7px;
+}
+
+.booking-dates div,
+.booking-price-text {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 6px;
+  margin-right: 8px;
+}

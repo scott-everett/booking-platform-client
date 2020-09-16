@@ -1,0 +1,42 @@
+mat-toolbar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
+
+.toolbar-title {
+  text-align: left;
+  width: 20%;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.toolbar-subtitle {
+  font-size: 20px;
+  font-weight: normal;
+  height: 30px;
+}
+
+.toolbar-buttons {
+  width: 80%;
+}
+
+.toolbar-buttons button {
+  border: solid;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.toolbar-link {
+  width: fit-content;
+  font-size: 15px;
+  border-style: none !important;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+button:hover {
+  color: lightgray;
+}

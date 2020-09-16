@@ -1,0 +1,170 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="toolbar-title">{{ modeText }}</div>
+    <div class="toolbar-links">
+      <a (click)="toggleMode()" class="app-link">
+        {{ changeModeLinkText }}
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Registration form -->
+<div *ngIf="isInMode(AccountDialogComponentMode.Register)">
+  <form [formGroup]="registerForm">
+    <div fxLayout="column nowrap" fxLayoutAlign="flex-start">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <div>
+          <input matInput formControlName="name" />
+          <mat-error
+            *ngIf="
+              registerForm.get('name').hasError('required') &&
+              registerForm.get('name').touched
+            "
+          >
+            {{ requiredErrorMessage }}
+          </mat-error>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email Address</mat-label>
+        <div>
+          <input matInput formControlName="emailAddress" />
+          <mat-error *ngIf="emailAddressErrorMessage">
+            {{ emailAddressErrorMessage }}
+          </mat-error>
+        </div>
+      </mat-form-field>
+      <div formGroupName="matchingPassword">
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <div>
+            <div fxLayout="row nowrap" fxLayoutAlign="flex-start">
+              <input
+                matInput
+                [type]="hidePassword ? 'password' : 'text'"
+                formControlName="password"
+                (keyup)="onRegisterPasswordKeyUp()"
+              />
+              <mat-icon matSuffix (click)="hidePassword = !hidePassword"
+                >{{ hidePassword ? "visibility" : "visibility_off" }}
+              </mat-icon>
+            </div>
+            <mat-error
+              *ngIf="
+                registerForm
+                  .get('matchingPassword.password')
+                  .hasError('required') &&
+                registerForm.get('matchingPassword.password').touched
+              "
+            >
+              {{ requiredErrorMessage }}
+            </mat-error>
+            <mat-error
+              *ngIf="
+                registerForm
+                  .get('matchingPassword.password')
+                  .hasError('notEquivalent') &&
+                registerForm.get('matchingPassword.password').touched
+              "
+            >
+              {{ passwordsNotMatchedMessage }}
+            </mat-error>
+          </div>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <div>
+            <div fxLayout="row nowrap" fxLayoutAlign="flex-start">
+              <input
+                matInput
+                [type]="hidePassword ? 'password' : 'text'"
+                formControlName="confirmPassword"
+                (keyup)="onRegisterConfirmPasswordKeyUp()"
+              />
+              <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
+                hidePassword ? "visibility" : "visibility_off"
+              }}</mat-icon>
+            </div>
+            <mat-error
+              *ngIf="
+                registerForm
+                  .get('matchingPassword.confirmPassword')
+                  .hasError('required') &&
+                registerForm.get('matchingPassword.confirmPassword').touched
+              "
+            >
+              {{ requiredErrorMessage }}
+            </mat-error>
+            <mat-error
+              *ngIf="
+                registerForm
+                  .get('matchingPassword.confirmPassword')
+                  .hasError('notEquivalent') &&
+                registerForm.get('matchingPassword.confirmPassword').touched
+              "
+            >
+              {{ passwordsNotMatchedMessage }}
+            </mat-error>
+          </div>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Sign In form -->
+<div *ngIf="isInMode(AccountDialogComponentMode.SignIn)">
+  <form [formGroup]="signInForm">
+    <div fxLayout="column nowrap" fxLayoutAlign="flex-start">
+      <mat-form-field>
+        <mat-label>Email Address</mat-label>
+        <div>
+          <input matInput formControlName="emailAddress" />
+          <mat-error *ngIf="emailAddressErrorMessage">
+            {{ emailAddressErrorMessage }}
+          </mat-error>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <div>
+          <div fxLayout="row nowrap" fxLayoutAlign="flex-start">
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              formControlName="password"
+            />
+            <mat-icon matSuffix (click)="hidePassword = !hidePassword"
+              >{{ hidePassword ? "visibility" : "visibility_off" }}
+            </mat-icon>
+          </div>
+          <mat-error
+            *ngIf="
+              signInForm.get('password').hasError('required') &&
+              signInForm.get('password').touched
+            "
+          >
+            {{ requiredErrorMessage }}
+          </mat-error>
+        </div>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+
+<div class="buttons-row">
+  <button mat-button color="warn" (click)="onCancelClick()">Cancel</button>
+
+  <button
+    mat-button
+    color="primary"
+    (click)="onGoClick()"
+    [disabled]="goButtonDisabled"
+    [class.spinner]="waitingForServer"
+  >
+    {{ modeText }}
+  </button>
+</div>

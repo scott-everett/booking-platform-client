@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+.room-summary {
+  margin-bottom: 15px;
+}
+.room-summary:hover {
+  background-color: rgb(235, 243, 255);
+}

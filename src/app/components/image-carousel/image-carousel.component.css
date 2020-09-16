@@ -1,0 +1,39 @@
+ngb-carousel {
+  width: 800px;
+  height: 535px;
+  background-color: #ebf3ff;
+  display: table-cell !important;
+  vertical-align: middle;
+  text-align: center;
+}
+
+img {
+  max-width: 800px;
+  max-height: 535px;
+  outline: none;
+}
+
+.carousel-inner {
+  display: inline-block;
+}
+
+.carousel-control-prev {
+  z-index: 20;
+  opacity: 1;
+}
+
+.carousel-control-next {
+  z-index: 20;
+  opacity: 1;
+}
+
+.thumbnail-strip {
+  width: 800px;
+}
+
+.thumbnail-card {
+  width: 95px;
+  height: 95px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}

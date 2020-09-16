@@ -1,1 +1,94 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Main body (under toolbar) padding */
+#app-body {
+  padding-top: 30px;
+  padding-left: 120px;
+}
+
+.mat-button {
+  border: solid !important;
+  height: 40px;
+}
+
+.mat-form-field {
+  font-size: 13px;
+}
+
+/* For spinners on loading buttons */
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  border-top-color: lightgray;
+  animation: spinner 0.8s ease-in-out infinite;
+}
+
+/* Snackbar styling */
+.warning-snackbar {
+  background: #fc6965;
+  color: #fff;
+}
+
+.warning-snackbar .mat-button,
+.warning-snackbar .mat-flat-button,
+.warning-snackbar .mat-icon-button,
+.warning-snackbar .mat-stroked-button {
+  color: #fff;
+}
+
+.success-snackbar {
+  background: #4cd964;
+  color: #fff;
+}
+
+.success-snackbar .mat-button,
+.success-snackbar .mat-flat-button,
+.success-snackbar .mat-icon-button,
+.success-snackbar .mat-stroked-button {
+  color: #fff;
+}
+
+.mat-simple-snackbar {
+  justify-content: center !important;
+}
+
+.mat-menu-item {
+  outline: none !important;
+}
+
+.mat-icon-button {
+  outline: none !important;
+}
+
+.app-link {
+  outline: none !important;
+}
+
+.app-link:hover {
+  color: lightgray !important;
+  text-decoration-line: none !important;
+}

@@ -1,0 +1,58 @@
+<div class="room">
+  <div class="room-title">
+    {{ room?.title }}
+  </div>
+  <div class="room-address">
+    {{ room?.address }}
+  </div>
+  <app-image-carousel
+    class="room-images"
+    [imageUrls]="imageUrls"
+  ></app-image-carousel>
+
+  <div class="room-description" [innerHTML]="room?.description"></div>
+  <div class="room-capacity" fxLayout="row" fxLayoutAlign="flex-start">
+    <div class="room-capacity-icons">
+      <mat-icon
+        *ngFor="let i of guestArrayToGenerateCapacityIcons"
+        class="room-capacity-icon"
+        >person</mat-icon
+      >
+    </div>
+    <div class="room-capacity-text">Sleeps {{ room?.capacity }} guests</div>
+  </div>
+  <div class="room-price" fxLayout="row" fxLayoutAlign="flex-start">
+    <mat-icon class="room-price-icon">money</mat-icon>
+    <div class="room-price-text">${{ room?.price.toFixed(2) }} per night</div>
+  </div>
+
+  <div id="bookings-panel">
+    <div id="bookings-panel-title">Book Now!</div>
+
+    <!-- Only show this if the user is logged in -->
+    <div
+      *ngIf="isLoggedIn"
+      fxLayout="row"
+      fxLayoutAlign="flex-start"
+      id="booking-parameter-flex"
+    >
+      <app-booking-parameters #bookingParameters></app-booking-parameters>
+      <button
+        id="book-now"
+        mat-button
+        color="primary"
+        (click)="onBookClick()"
+        [disabled]="bookNowButtonDisabled"
+        [class.spinner]="waitingForServer"
+      >
+        Book Now >>
+      </button>
+    </div>
+
+    <!-- Only show this if the user is not logged in -->
+    <div *ngIf="!isLoggedIn" id="booking-not-signed-in">
+      Please <a (click)="onSignInClick()" class="app-link">sign in</a> or
+      <a (click)="onRegisterClick()" class="app-link">register</a> to book.
+    </div>
+  </div>
+</div>

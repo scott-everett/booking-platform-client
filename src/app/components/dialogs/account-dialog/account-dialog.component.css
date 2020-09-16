@@ -1,0 +1,40 @@
+mat-toolbar {
+  margin-bottom: 35px;
+  width: 500px;
+}
+
+form {
+  width: min-content;
+}
+
+mat-form-field {
+  width: 300px;
+}
+
+.toolbar-title {
+  text-align: left;
+  width: 50%;
+}
+
+.toolbar-links {
+  text-align: right;
+  width: 50%;
+}
+
+.toolbar-links a {
+  font-size: 15px;
+  font-weight: normal;
+  color: white;
+}
+
+.buttons-row {
+  text-align: right;
+}
+
+.buttons-row button {
+  margin-left: 10px;
+}
+
+mat-error {
+  font-size: 12px;
+}

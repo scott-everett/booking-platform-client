@@ -1,0 +1,28 @@
+<img class="room-summary-image" src="{{ imageUrl }}" />
+<div class="room-summary-details">
+  <div class="room-summary-title">
+    {{ room?.title }}
+  </div>
+  <div class="room-summary-location">
+    {{ room?.summaryLocation }}
+  </div>
+  <div class="room-summary-description">{{ roomDescription }}</div>
+  <div class="room-summary-capacity" fxLayout="row" fxLayoutAlign="flex-start">
+    <div class="room-summary-capacity-icons">
+      <mat-icon
+        *ngFor="let i of guestArrayToGenerateCapacityIcons"
+        class="room-summary-capacity-icon"
+        >person</mat-icon
+      >
+    </div>
+    <div class="room-summary-capacity-text">
+      Sleeps {{ room?.capacity }} guests
+    </div>
+  </div>
+  <div class="room-summary-price" fxLayout="row" fxLayoutAlign="flex-start">
+    <mat-icon class="room-summary-price-icon">money</mat-icon>
+    <div class="room-summary-price-text">
+      ${{ room?.price.toFixed(2) }} per night
+    </div>
+  </div>
+</div>
