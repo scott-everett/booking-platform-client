@@ -1,0 +1,6 @@
+<app-room-summary
+  *ngFor="let room of rooms"
+  [room]="room"
+  class="room-summary"
+  routerLink="/room/{{ room?.roomId }}"
+></app-room-summary>

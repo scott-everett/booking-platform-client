@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div routerLink="/rooms" class="app-link">
+      <div class="toolbar-title">Sweet Suites</div>
+      <div class="toolbar-subtitle">Holiday Accomodation Bookings</div>
+    </div>
+
+    <div
+      fxLayout="row"
+      fxLayoutAlign="flex-end"
+      *ngIf="accountLoadAttempted"
+      class="toolbar-buttons"
+    >
+      <button
+        mat-button
+        *ngIf="doShowRoomsListLink"
+        class="toolbar-link app-link"
+        routerLink="/rooms"
+      >
+        Rooms List
+      </button>
+
+      <button *ngIf="!currentAccount" mat-button (click)="onSignInClick()">
+        Sign In
+      </button>
+      <button *ngIf="!currentAccount" mat-button (click)="onRegisterClick()">
+        Register
+      </button>
+      <button
+        mat-button
+        *ngIf="currentAccount"
+        class="toolbar-link app-link"
+        (click)="onBookingListClick()"
+      >
+        My Bookings
+      </button>
+      <button
+        *ngIf="currentAccount"
+        mat-button
+        class="toolbar-link app-link"
+        [matMenuTriggerFor]="accountMenu"
+      >
+        <mat-icon>person</mat-icon>{{ currentAccount.userFullName }}
+      </button>
+
+      <mat-menu #accountMenu="matMenu">
+        <button mat-menu-item (click)="onSignOutClick()">Sign Out</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

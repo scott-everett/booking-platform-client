@@ -1,0 +1,24 @@
+<img class="booking-image" src="{{ imageUrl }}" />
+<div class="booking-details">
+  <div class="booking-title app-link" routerLink="/room/{{ room?.roomId }}">
+    {{ room?.title }}
+  </div>
+  <div class="booking-location">
+    {{ room?.summaryLocation }}
+  </div>
+  <div class="booking-dates" fxLayout="row" fxLayoutAlign="flex-start">
+    <mat-icon class="booking-price-icon">date_range</mat-icon>
+    <div class="booking-check-in">
+      Check In Date: {{ formatDate(booking?.startDate) }}
+    </div>
+    <div class="booking-check-out">
+      Check Out Date: {{ formatDate(booking?.endDate) }}
+    </div>
+  </div>
+  <div class="booking-price" fxLayout="row" fxLayoutAlign="flex-start">
+    <mat-icon class="booking-price-icon">money</mat-icon>
+    <div class="booking-price-text">
+      Total Price: ${{ booking?.calculatedPrice.toFixed(2) }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+:host {
+  width: 800px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  border-color: rgb(198, 198, 198);
+  padding: 16px;
+  overflow: hidden;
+  display: block;
+}
+
+.room-summary-image {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+.room-summary-details {
+  float: right;
+  width: calc(100% - 200px);
+  padding-left: 20px;
+}
+
+.room-summary-title {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #0071c2;
+}
+
+.room-summary-location {
+  font-size: 17px;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #0071c2;
+}
+
+.room-summary-description {
+  white-space: pre-wrap;
+  font-size: 13px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.room-summary-capacity {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.room-summary-capacity-icons {
+  width: fit-content;
+}
+
+.room-summary-capacity-text,
+.room-summary-price-text {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 6px;
+}

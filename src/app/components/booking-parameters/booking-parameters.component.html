@@ -1,0 +1,73 @@
+<form [formGroup]="bookingParametersForm">
+  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start">
+    <div formGroupName="bookingDates">
+      <mat-form-field>
+        <mat-label>Booking Dates</mat-label>
+        <mat-date-range-input
+          [rangePicker]="picker"
+          [dateFilter]="filterValidBookingDates"
+        >
+          <input
+            matStartDate
+            formControlName="bookingStartDate"
+            placeholder="Start Date"
+          />
+          <input
+            matEndDate
+            formControlName="bookingEndDate"
+            placeholder="End Date"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+        <mat-error
+          *ngIf="
+            bookingParametersForm
+              .get('bookingDates.bookingStartDate')
+              .hasError('matStartDateInvalid') ||
+            bookingParametersForm
+              .get('bookingDates.bookingStartDate')
+              .hasError('required')
+          "
+          >Invalid start date</mat-error
+        >
+        <mat-error
+          *ngIf="
+            bookingParametersForm
+              .get('bookingDates.bookingEndDate')
+              .hasError('matEndDateInvalid') ||
+            bookingParametersForm
+              .get('bookingDates.bookingEndDate')
+              .hasError('required')
+          "
+          >Invalid end date</mat-error
+        >
+
+        <mat-error
+          *ngIf="
+            bookingParametersForm
+              .get('bookingDates.bookingEndDate')
+              .hasError('endDateOnOrBeforeStartDate')
+          "
+          >End date must be after start date</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <mat-label>Number of Guests</mat-label>
+      <div>
+        <input type="number" matInput formControlName="noOfGuests" />
+        <mat-error
+          *ngIf="
+            bookingParametersForm
+              .get('noOfGuests')
+              .hasError('matEndDateInvalid')
+          "
+        >
+          This field is required!
+        </mat-error>
+      </div>
+    </mat-form-field>
+  </div>
+</form>

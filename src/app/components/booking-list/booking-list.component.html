@@ -1,0 +1,7 @@
+<p *ngIf="bookings?.length === 0">You haven't made any bookings yet.</p>
+
+<app-booking
+  *ngFor="let booking of bookings"
+  [booking]="booking"
+  class="booking"
+></app-booking>
