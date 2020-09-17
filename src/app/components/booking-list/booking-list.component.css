@@ -1,3 +1,8 @@
 .booking {
   margin-bottom: 15px;
 }
+
+#bookings-list-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
